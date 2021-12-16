@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "TimerManager.h"
 #include "Event.h"
+#include "ResourceManager.h"
 
 int main()
 {
@@ -21,6 +22,13 @@ int main()
 	}, 0));
 
 	float dt = 1.0f / 60.0f;
+
+	rapidjson::Document doc = Resources::ResourceManager::parseJsonFile("test.json");
+	
+	if(doc.IsObject())
+		for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); it++) {
+			std::cout << it->name.GetString() << std::endl;
+		}
 
 	while (true) {
 		auto start = std::chrono::steady_clock::now();
