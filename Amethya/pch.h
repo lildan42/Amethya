@@ -13,4 +13,6 @@
 #include <thread>
 #include <filesystem>
 
+#include <SFML/Graphics.hpp>
+
 #include "rapidjson/document.h"

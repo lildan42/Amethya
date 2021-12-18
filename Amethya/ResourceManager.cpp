@@ -4,6 +4,7 @@ using namespace rapidjson;
 namespace fs = std::filesystem;
 
 namespace Resources {
+
 	ResourceManager::ResourceManager() {}
 
 	ResourceManager& ResourceManager::getInstance() {

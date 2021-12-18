@@ -30,10 +30,21 @@ int main()
 			std::cout << it->name.GetString() << std::endl;
 		}
 
-	while (true) {
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Amethya");
+	window.setFramerateLimit(60);
+
+	while (window.isOpen()) {
 		auto start = std::chrono::steady_clock::now();
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		sf::Event windowEvent;
+
+		while (window.pollEvent(windowEvent)) {
+			if (windowEvent.type == sf::Event::Closed)
+				window.close();
+		}
+
+		window.clear(sf::Color('b', 'o', 'b'));
+		window.display();
 
 		auto end = std::chrono::steady_clock::now();
 		dt = (float)std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / 1e9f;
