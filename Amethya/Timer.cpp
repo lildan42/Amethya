@@ -1,7 +1,7 @@
 #include "Timer.h"
 
 namespace Timer {
-	Timer::Timer(float interval, std::function<void(int)> callback) : Timer(interval, callback, 1) { }
+	Timer::Timer(float interval, std::function<void(int)> callback) : Timer(interval, callback, 0) { }
 
 	Timer::Timer(float interval, std::function<void(int)> callback, unsigned int repeatCount) {
 		this->interval = interval;
