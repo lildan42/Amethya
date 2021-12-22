@@ -1,5 +1,6 @@
 #include "Amethya.h"
 #include "TimerManager.h"
+#include "InputManager.h"
 
 Amethya::Amethya() : dt(FPS_DEFAULT), start(std::chrono::steady_clock::now()) { }
 
@@ -30,10 +31,24 @@ void Amethya::pollEvents() {
 			this->window.close();
 			break;
 
+		case sf::Event::KeyPressed:
+			if (evt.key.code != sf::Keyboard::Unknown)
+				Input::InputManager::getInstance().setButtonPressed(evt.key.code, true);
+
+			break;
+
+		case sf::Event::KeyReleased:
+			if (evt.key.code != sf::Keyboard::Unknown)
+				Input::InputManager::getInstance().setButtonPressed(evt.key.code, false);
+
+			break;
+
 		default:
 			break;
 		}
 	}
+
+	Input::InputManager::getInstance().updateButtonStates();
 }
 
 void Amethya::update(float dt) {
@@ -63,5 +78,9 @@ int main()
 		game.pollEvents();
 		game.update(game.getDeltaTime());
 		game.draw();
+
+		if (Input::InputManager::getInstance().isInputActive("Jump")) {
+			std::cout << "JUMPED!" << std::endl;
+		}
 	}
 }

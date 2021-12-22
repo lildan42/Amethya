@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Resources">
       <UniqueIdentifier>{0b05d5c5-0418-40d0-9f34-1f5dbb5636a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{ee3634bb-9bcc-495b-aa26-03df5ec7e921}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{66b613ce-fe0a-4427-a4cd-8f1640ecd95f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Amethya.cpp">
@@ -47,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Amethya.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

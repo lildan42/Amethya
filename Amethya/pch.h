@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <thread>
 #include <filesystem>
+#include <map>
+#include <array>
 
 #include <SFML/Graphics.hpp>
 
