@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "Event.h"
 
 namespace Input {
 	static constexpr size_t BUTTON_COUNT = 105;
@@ -20,6 +21,7 @@ namespace Input {
 	class InputManager {
 	private:
 		std::map<std::string, InputMapping> inputMap;
+		Events::Event<int> onPressButton;
 
 		std::array<bool, BUTTON_COUNT> isPressed;
 		std::array<ButtonState, BUTTON_COUNT> buttonStates;
@@ -32,6 +34,8 @@ namespace Input {
 
 		void setButtonPressed(int button, bool pressed);
 		void updateButtonStates();
+
+		void subscribeOnPressButtonHandler(std::function<void(int)> handler);
 
 		bool isInputActive(std::string input);
 

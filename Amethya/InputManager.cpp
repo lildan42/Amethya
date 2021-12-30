@@ -16,8 +16,10 @@ namespace Input {
 		for (size_t i = 0; i < BUTTON_COUNT; i++) {
 			switch (this->buttonStates[i]) {
 			case ButtonState::RELEASED:
-				if (this->isPressed[i])
+				if (this->isPressed[i]) {
 					this->buttonStates[i] = ButtonState::PRESSED;
+					this->onPressButton.invoke(i);
+				}
 
 				break;
 
@@ -40,6 +42,10 @@ namespace Input {
 
 	bool InputManager::isInputActive(std::string input) {
 		return this->buttonStates[this->inputMap[input].button] == this->inputMap[input].state;
+	}
+
+	void InputManager::subscribeOnPressButtonHandler(std::function<void(int)> handler) {
+		this->onPressButton.subscribeHandler(handler);
 	}
 
 	InputManager& InputManager::getInstance() {

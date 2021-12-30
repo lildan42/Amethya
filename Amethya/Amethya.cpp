@@ -1,6 +1,7 @@
 #include "Amethya.h"
 #include "TimerManager.h"
 #include "InputManager.h"
+#include "ResourceManager.h"
 
 Amethya::Amethya() : dt(FPS_DEFAULT), start(std::chrono::steady_clock::now()) { }
 
@@ -56,7 +57,15 @@ void Amethya::update(float dt) {
 }
 
 void Amethya::draw() {
-	this->window.clear(BACKGROUND);
+	this->window.clear();
+
+	sf::Sprite& sprite0 = Resources::ResourceManager::getInstance().getSprite("platforms", 1);
+
+	for (float i = 0; i < (float)this->WIDTH * (float)this->HEIGHT / 32.0f; i += 32.0f) {
+		sprite0.setPosition(sf::Vector2f(fmodf(i, this->WIDTH), 32.0f * floorf(i / this->WIDTH)));
+		this->window.draw(sprite0);
+	}
+
 	this->window.display();
 
 	auto end = std::chrono::steady_clock::now();
@@ -73,6 +82,12 @@ int main()
 
 	Amethya& game = Amethya::getInstance();
 	game.init();
+
+	Input::InputManager::getInstance().subscribeOnPressButtonHandler([](int key) {
+		if (key >= sf::Keyboard::A && key <= sf::Keyboard::Z) {
+			std::cout << (char)('A' + key);
+		}
+	});
 
 	while (game.isWindowOpen()) {
 		game.pollEvents();

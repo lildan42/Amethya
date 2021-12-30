@@ -1,0 +1,15 @@
+{
+    "platforms": {
+        "location": "Resources/Textures/platforms.png",
+        "sprites": [
+            {
+                "rect": [0, 0, 32, 32],
+                "color": [255, 255, 255, 255]
+            },
+            {
+                "rect": [32, 0, 32, 32],
+                "color": [255, 255, 255, 255]
+            }
+        ]
+    }
+}

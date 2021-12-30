@@ -165,6 +165,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="SpriteCollection.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />
   </ItemGroup>
@@ -174,6 +175,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="SpriteCollection.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerManager.h" />
   </ItemGroup>

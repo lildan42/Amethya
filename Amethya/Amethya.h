@@ -4,8 +4,6 @@
 
 class Amethya {
 private:
-	const sf::Color BACKGROUND = sf::Color(0xaa00ffff);
-
 	const unsigned int FPS_LIMIT = 60;
 	const float FPS_DEFAULT = 1.0f / (float)FPS_LIMIT;
 
