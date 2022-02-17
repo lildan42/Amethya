@@ -163,8 +163,10 @@
   <ItemGroup>
     <ClCompile Include="Amethya.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpriteCollection.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerManager.cpp" />
@@ -172,9 +174,11 @@
   <ItemGroup>
     <ClInclude Include="Event.h" />
     <ClInclude Include="Amethya.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteCollection.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerManager.h" />
